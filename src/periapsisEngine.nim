@@ -1,4 +1,4 @@
-import src / [
+import
   app,
   button,
   color,
@@ -12,7 +12,6 @@ import src / [
   textGraphic,
   ui,
   vector
-]
 
 export
   app,
