@@ -13,9 +13,6 @@ import
   imageGraphic
 
 const
-  title*: cstring = "Beyond the Sphere"
-  width*: cint = 1024
-  height*: cint = 586
   flags*: uint32 = Window_Resizable + Window_OpenGL
 var
   renderer*: Renderer
@@ -33,7 +30,7 @@ type
 
 
 
-proc init*(): App =
+proc init*(title: cstring, width: cint, height: cint): App =
   initSDL()
 
   var app = App()
@@ -95,6 +92,12 @@ proc exit*(app: App) =
   app.window.destroyWindow()
   destroySDL()
   logMessage(Log_Category_Application, Log_Priority_Info, "Successfully shut down the application")
+
+
+
+method getWindowSize*(app: App): Vector2 =
+  result = Vector2()
+  getWindowSize(app.window, addr(result.x), addr(result.y))
 
 
 
