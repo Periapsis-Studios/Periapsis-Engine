@@ -1,5 +1,5 @@
 include
-  src / [app,
+  private / [app,
   button,
   color,
   dropdown,
