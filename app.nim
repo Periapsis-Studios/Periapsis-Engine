@@ -95,7 +95,7 @@ proc exit*(app: App) =
 
 
 
-method getWindowSize*(app: App): Vector2 =
+method getWindowSize*(app: App): Vector2 {.base.} =
   result = Vector2()
   getWindowSize(app.window, addr(result.x), addr(result.y))
 
@@ -293,15 +293,15 @@ method quit*(app: App) {.base.} =
 
 
 
-method run*(app: App, msPerUpdate: uint16) {.base} =
-  var previousTime = getTicks()
-  var lag: uint32 = 0
+method run*(app: App, msPerUpdate: float) {.base} =
+  var previousTime = float(getTicks())
+  var lag: float = 0
   var running = true
 
   while running:
     var event: Event
     discard pollEvent(addr(event))
-    var currentTime = getTicks()
+    var currentTime = float(getTicks())
     var elapsedTime = currentTime - previousTime
     previousTime = currentTime
     lag += elapsedTime
