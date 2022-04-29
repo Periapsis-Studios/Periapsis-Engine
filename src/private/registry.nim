@@ -38,7 +38,7 @@ proc setActive*(sceneIn: Scene) =
 
   entities = newSeq[Entity]()
   buttons = newSeq[UiButton]()
-  sceneVar[0].hide()
+  sceneVar.hide()
 
   for entity in sceneIn.entities:
     entity.register()
@@ -53,8 +53,8 @@ proc setActive*(sceneIn: Scene) =
     for textField in ui.textFields:
       textField.register()
 
-  sceneVar[0] = sceneIn
-  sceneVar[0].show()
+  sceneVar = sceneIn
+  sceneVar.show()
 
 
 
@@ -66,7 +66,7 @@ proc isRegistered*(entityIn: Entity): bool =
   return false
 
 proc isCurrent*(sceneIn: Scene): bool =
-  if sceneIn == sceneVar[0]:
+  if sceneIn == sceneVar:
     return true
   return false
 
