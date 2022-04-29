@@ -1,5 +1,6 @@
 include
-  private / [app,
+  private / [
+  app,
   button,
   color,
   dropdown,
