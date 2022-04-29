@@ -33,13 +33,12 @@ proc register*(textField: UiTextField) =
 proc setActive*(sceneIn: Scene) =
   var sceneRegistered: bool = false
   for scene in scenes:
-    if scene == sceneIn:
+    if scene == sceneIn and not sceneRegistered:
       sceneRegistered = true
 
-  if not sceneVar.isNil():
-    entities = newSeq[Entity]()
-    buttons = newSeq[UiButton]()
-    sceneVar.hide()
+  entities = newSeq[Entity]()
+  buttons = newSeq[UiButton]()
+  sceneVar.hide()
 
   for entity in sceneIn.entities:
     entity.register()
