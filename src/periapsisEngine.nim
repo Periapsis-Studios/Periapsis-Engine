@@ -1,4 +1,4 @@
-include
+import
   private / [
   app,
   button,
@@ -12,4 +12,6 @@ include
   textField,
   textGraphic,
   ui,
-  vector]
+  vector,
+  renderer
+]
