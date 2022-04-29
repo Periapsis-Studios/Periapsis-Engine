@@ -15,7 +15,7 @@ method add*(scene: var Scene, entity: Entity) {.base.} =
 
 
 
-method remove*(scene: var Scene, entity: Entity) {.base.} =
+method remove*(scene: var Scene, entity: var Entity) {.base.} =
   for i in 0 ..< scene.entities.len:
     if scene.entities[i] == entity:
       scene.entities.del(i)
@@ -24,7 +24,7 @@ method remove*(scene: var Scene, entity: Entity) {.base.} =
 
 
 method remove*(scene: var Scene) {.base.} =
-  for entity in scene.entities:
+  for entity in scene.entities.mitems():
     entity.remove()
 
 
@@ -40,5 +40,5 @@ method hide*(scene: Scene) {.base.} =
 
 
 method update*(scene: Scene, keys: seq[cint]) {.base.} =
-  for entity in scene.entities:
+  for entity in scene.entities.mitems():
     entity.update()
