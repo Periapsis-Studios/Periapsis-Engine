@@ -2,7 +2,7 @@ import
   sdl2_nim / [sdl, sdl_ttf]
 
 type
-  TextGraphic* = ref object of RootObj
+  TextGraphic* = object of RootObj
     text*: string
     color*: Color
     font*: Font
@@ -17,12 +17,12 @@ method remove*(textGraphic: TextGraphic) {.base.} =
 
 
 
-method loadFont*(textGraphic: TextGraphic, path: string, size: cint) {.base.} =
+method loadFont*(textGraphic: var TextGraphic, path: string, size: cint) {.base.} =
   textGraphic.font = openFont(path, size)
 
 
 
-method fillTextureWithText*(renderer: Renderer, textGraphic: TextGraphic) {.base.} =
+method fillTextureWithText*(renderer: Renderer, textGraphic: var TextGraphic) {.base.} =
   var textSurface = renderUTF8_Solid(
     textGraphic.font,
     textGraphic.text,

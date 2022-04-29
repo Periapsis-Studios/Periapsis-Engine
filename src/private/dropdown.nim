@@ -5,7 +5,7 @@ import
   vector
 
 type
-  UiDropdown* = ref object of RootObj
+  UiDropdown* = object of RootObj
     optionGraphic*: Graphic
     options*: seq[TextGraphic]
     currentOptionIndex*: int
@@ -37,7 +37,7 @@ proc newUiDropdown*(options: seq[TextGraphic] = newSeq[TextGraphic](),
 
 
 
-method open*(uiDropdown: UiDropdown) {.base.} =
+method open*(uiDropdown: var UiDropdown) {.base.} =
   for i in 0 ..< uiDropdown.options.len:
     if uiDropdown.options[i] != uiDropdown.options[uiDropdown.currentOptionIndex]:
       var button = UiButton(
@@ -50,7 +50,7 @@ method open*(uiDropdown: UiDropdown) {.base.} =
 
 
 
-method close*(uiDropdown: UiDropdown) {.base.} =
+method close*(uiDropdown: var UiDropdown) {.base.} =
   for i in 0 ..< uiDropdown.options.len:
     if uiDropdown.options[i] != uiDropdown.options[uiDropdown.currentOptionIndex]:
       uiDropdown.openButtons[i].remove()
@@ -59,7 +59,7 @@ method close*(uiDropdown: UiDropdown) {.base.} =
 
 
 
-method onLmbPress*(uiDropdown: UiDropdown, index: int) {.base.} =
+method onLmbPress*(uiDropdown: var UiDropdown, index: int) {.base.} =
   if uiDropdown.isOpen:
     uiDropdown.currentOptionIndex = index
     uiDropdown.close()

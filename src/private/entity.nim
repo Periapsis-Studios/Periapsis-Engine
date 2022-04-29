@@ -11,10 +11,10 @@ type
 
 
 
-method update*(entity: Entity) {.base.} =
+method update*(entity: var Entity) {.base.} =
   discard
 
 
 
-method remove*(entity: Entity) {.base.} =
+method remove*(entity: var Entity) {.base.} =
   entity.graphic.remove()

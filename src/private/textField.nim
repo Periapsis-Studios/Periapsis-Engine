@@ -6,7 +6,7 @@ import
   vector
 
 type
-  UiTextField* = ref object of RootObj
+  UiTextField* = object of RootObj
     currentText*: TextGraphic
     exampleText*: TextGraphic
     background*: Graphic
@@ -28,7 +28,7 @@ proc newUiTextField*(exampleText: TextGraphic = TextGraphic(),
 
 
 
-method setCurrentText*(uiTextField: UiTextField, currentText: string, renderer: Renderer) {.base.} =
+method setCurrentText*(uiTextField: var UiTextField, currentText: string, renderer: Renderer) {.base.} =
   var font = uiTextField.exampleText.font
   var color = uiTextField.exampleText.color
 

@@ -4,18 +4,18 @@ import
   ui
 
 type
-  Scene* = ref object of RootObj
+  Scene* = object of RootObj
     entities*: seq[Entity]
     ui*: seq[UI]
 
 
 
-method add*(scene: Scene, entity: Entity) {.base.} =
+method add*(scene: var Scene, entity: Entity) {.base.} =
   scene.entities.add(entity)
 
 
 
-method remove*(scene: Scene, entity: Entity) {.base.} =
+method remove*(scene: var Scene, entity: Entity) {.base.} =
   for i in 0 ..< scene.entities.len:
     if scene.entities[i] == entity:
       scene.entities.del(i)
@@ -23,7 +23,7 @@ method remove*(scene: Scene, entity: Entity) {.base.} =
 
 
 
-method remove*(scene: Scene) {.base.} =
+method remove*(scene: var Scene) {.base.} =
   for entity in scene.entities:
     entity.remove()
 

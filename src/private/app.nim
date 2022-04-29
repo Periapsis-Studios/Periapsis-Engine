@@ -16,7 +16,7 @@ const
   flags*: uint32 = Window_Resizable + Window_OpenGL
 
 type
-  App* = ref object
+  App* = object
     window*: Window
     renderer*: Renderer
     mousePos*: Vector2
@@ -100,7 +100,7 @@ method getWindowSize*(app: App): Vector2 {.base.} =
 
 
 
-method handleInput*(app: App) {.base.} =
+method handleInput*(app: var App) {.base.} =
   for button in buttons:
     var buttonRect = Rect(x: button.pos.x, y: button.pos.y, w: button.graphic.w, h: button.graphic.h)
     var buttonTextSize = Vector2()
@@ -296,7 +296,7 @@ method quit*(app: App) {.base.} =
 
 
 
-method run*(app: App, msPerUpdate: float) {.base} =
+method run*(app: var App, msPerUpdate: float) {.base} =
   var previousTime = float(getTicks())
   var lag: float = 0
   var running = true

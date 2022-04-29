@@ -4,7 +4,7 @@ import
   textGraphic
 
 type
-  UiButton* = ref object of RootObj
+  UiButton* = object of RootObj
     graphic*: Graphic
     text*: TextGraphic
     pos*: Vector2

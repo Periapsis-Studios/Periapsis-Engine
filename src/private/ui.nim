@@ -6,7 +6,7 @@ import
 
 
 type
-  UI* = ref object of RootObj
+  UI* = object of RootObj
     buttons*: seq[UiButton]
     dropdowns*: seq[UiDropdown]
     textFields*: seq[UiTextField]

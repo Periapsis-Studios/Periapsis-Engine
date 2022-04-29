@@ -4,14 +4,14 @@ import
 
 
 type
-  Graphic* = ref object
+  Graphic* = object
     texture*: Texture
     w*: cint
     h*: cint
 
 
 
-method load*(graphic: Graphic, path: cstring, renderer: Renderer) {.base.} =
+method load*(graphic: var Graphic, path: cstring, renderer: Renderer) {.base.} =
   var rw = rwFromFile(path, "r")
   var surface = loadJPG_RW(rw)
   graphic.texture = renderer.createTextureFromSurface(surface)
