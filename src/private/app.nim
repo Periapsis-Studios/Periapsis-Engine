@@ -85,7 +85,7 @@ proc exit*(app: App) =
     textField.background.remove()
     textField.buttonBackend.remove()
 
-  scene.remove(registry.sceneVar[0])
+  scene.remove(registry.sceneVar)
   sdl_image.quit()
   app.renderer.destroyRenderer()
   app.window.destroyWindow()
@@ -207,7 +207,7 @@ method update*(app: App) {.base.} =
     var keyScancode = Scancode(key)
     keysFinal.add(scancodeToKeycode(keyScancode))
 
-  sceneVar[0].update(keysFinal)
+  sceneVar.update(keysFinal)
 
   for button in buttons:
     button.update()
