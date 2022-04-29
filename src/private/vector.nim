@@ -1,4 +1,4 @@
 type
-  Vector2* = ref object of RootObj
+  Vector2* = object
     x*: cint
     y*: cint
