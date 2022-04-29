@@ -4,11 +4,13 @@ import
   scene,
   entity,
   dropdown,
-  textField
+  textField,
+  sdl2_nim / sdl
 
 var
   entities*: seq[Entity]
   sceneVar*: Scene
+  renderer*: Renderer
   buttons*: seq[UiButton]
   dropdowns*: seq[UiDropdown]
   textFields*: seq[UiTextField]

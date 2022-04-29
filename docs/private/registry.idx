@@ -1,5 +1,6 @@
 entities	private/registry.html#entities	registry: entities	
 sceneVar	private/registry.html#sceneVar	registry: sceneVar	
+renderer	private/registry.html#renderer	registry: renderer	
 buttons	private/registry.html#buttons	registry: buttons	
 dropdowns	private/registry.html#dropdowns	registry: dropdowns	
 textFields	private/registry.html#textFields	registry: textFields	

@@ -14,8 +14,6 @@ import
 
 const
   flags*: uint32 = Window_Resizable + Window_OpenGL
-var
-  renderer*: Renderer
 
 type
   App* = ref object

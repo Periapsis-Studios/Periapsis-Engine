@@ -1,5 +1,4 @@
 flags	private/app.html#flags	app: flags	
-renderer	private/app.html#renderer	app: renderer	
 App	private/app.html#App	app: App	
 init	private/app.html#init,cstring,cint,cint	app: init(title: cstring; width: cint; height: cint): App	
 exit	private/app.html#exit,App	app: exit(app: App)	

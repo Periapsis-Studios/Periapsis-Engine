@@ -12,6 +12,5 @@ include
   textField,
   textGraphic,
   ui,
-  vector,
-  renderer
+  vector
 ]
