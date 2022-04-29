@@ -4,7 +4,7 @@ import
 
 
 type
-  Graphic* = ref object of RootObj
+  Graphic* = ref object
     texture*: Texture
     w*: cint
     h*: cint
@@ -27,5 +27,5 @@ method remove*(graphic: Graphic) {.base.} =
 
 
 proc newGraphic*(path: cstring, renderer: Renderer): Graphic =
-  result = new Graphic
+  result = Graphic()
   result.load(path, renderer)
