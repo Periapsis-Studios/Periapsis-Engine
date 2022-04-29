@@ -319,4 +319,5 @@ method run*(app: App, msPerUpdate: float) {.base} =
 
     if event.kind == Quit:
       running = false
-      app.exit()
+    
+  app.exit()
