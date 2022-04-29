@@ -1,0 +1,4 @@
+Graphic	private/imageGraphic.html#Graphic	imageGraphic: Graphic	
+load	private/imageGraphic.html#load.e,Graphic,cstring,Renderer	imageGraphic: load(graphic: Graphic; path: cstring; renderer: Renderer)	
+remove	private/imageGraphic.html#remove.e,Graphic	imageGraphic: remove(graphic: Graphic)	
+newGraphic	private/imageGraphic.html#newGraphic,cstring,Renderer	imageGraphic: newGraphic(path: cstring; renderer: Renderer): Graphic	

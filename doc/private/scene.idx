@@ -1,0 +1,6 @@
+Scene	private/scene.html#Scene	scene: Scene	
+add	private/scene.html#add.e,Scene,Entity	scene: add(scene: Scene; entity: Entity)	
+remove	private/scene.html#remove.e,Scene,Entity	scene: remove(scene: Scene; entity: Entity)	
+remove	private/scene.html#remove.e,Scene	scene: remove(scene: Scene)	
+show	private/scene.html#show.e,Scene	scene: show(scene: Scene)	
+hide	private/scene.html#hide.e,Scene	scene: hide(scene: Scene)	
