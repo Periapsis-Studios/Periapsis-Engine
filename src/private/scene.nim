@@ -36,3 +36,9 @@ method show*(scene: Scene) {.base.} =
 
 method hide*(scene: Scene) {.base.} =
   discard
+
+
+
+method update*(scene: Scene, keys: seq[cint]) {.base.} =
+  for entity in scene.entities:
+    entity.update()

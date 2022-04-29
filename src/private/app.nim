@@ -25,6 +25,7 @@ type
     currentFieldText*: string
     isKeyInputComplete*: bool
     keyInput*: string
+  Keycodes* = Keycode
 
 
 
@@ -200,9 +201,13 @@ method handleInput*(app: App) {.base.} =
 
 
 method update*(app: App) {.base.} =
+  var keys = getKeyboardState(nil)
+  var keysFinal = newSeq[cint]()
+  for key in keys[]:
+    var keyScancode = Scancode(key)
+    keysFinal.add(scancodeToKeycode(keyScancode))
 
-  for entity in entities:
-    entity.update()
+  sceneVar.update(keysFinal)
 
   for button in buttons:
     button.update()

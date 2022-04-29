@@ -4,3 +4,4 @@ remove	private/scene.html#remove.e,Scene,Entity	scene: remove(scene: Scene; enti
 remove	private/scene.html#remove.e,Scene	scene: remove(scene: Scene)	
 show	private/scene.html#show.e,Scene	scene: show(scene: Scene)	
 hide	private/scene.html#hide.e,Scene	scene: hide(scene: Scene)	
+update	private/scene.html#update.e,Scene,seq[cint]	scene: update(scene: Scene; keys: seq[cint])	
