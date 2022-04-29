@@ -13,7 +13,7 @@ type
 
 method load*(graphic: var Graphic, path: cstring, renderer: Renderer) {.base.} =
   var rw = rwFromFile(path, "r")
-  var surface = loadJPG_RW(rw)
+  var surface = loadPNG_RW(rw)
   graphic.texture = renderer.createTextureFromSurface(surface)
   graphic.w = surface[].w
   graphic.h = surface[].h
