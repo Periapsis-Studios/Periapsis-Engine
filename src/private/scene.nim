@@ -39,6 +39,6 @@ method hide*(scene: Scene) {.base.} =
 
 
 
-method update*(scene: Scene, keys: seq[cint]) {.base.} =
+method update*(scene: var Scene, keys: seq[cint]) {.base.} =
   for entity in scene.entities.mitems():
     entity.update()
