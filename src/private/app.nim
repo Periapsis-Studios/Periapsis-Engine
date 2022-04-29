@@ -65,7 +65,7 @@ proc exit*(app: App) =
     button.remove()
     discard button.deRegister()
 
-  for entity in entities:
+  for entity in entities.mitems():
     entity.graphic.texture.destroyTexture()
     entity.text.texture.destroyTexture()
     entity.remove()
@@ -125,7 +125,7 @@ method handleInput*(app: var App) {.base.} =
       button.onHoverEnd()
 
   
-  for dropdown in dropdowns:
+  for dropdown in dropdowns.mitems():
     for i in 0 ..< dropdown.openButtons.len:
       var button = dropdown.openButtons[i]
       var buttonRect = Rect(x: button.pos.x, y: button.pos.y, w: button.graphic.w, h: button.graphic.h)
@@ -227,11 +227,11 @@ method render*(app: App) {.base.} =
       h: entity.graphic.h
     )
 
-    if not entity.graphic.isNil():
+    if entity.graphic != Graphic():
       if app.renderer.renderCopy(entity.graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if not entity.text.isNil():
+    if entity.text != TextGraphic():
       if app.renderer.renderCopy(entity.text.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
@@ -246,11 +246,11 @@ method render*(app: App) {.base.} =
       h: button.graphic.h
     )
 
-    if not button.graphic.isNil():
+    if button.graphic != Graphic():
       if app.renderer.renderCopy(button.graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if not button.text.isNil():
+    if button.text != TextGraphic():
       if app.renderer.renderCopy(button.text.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
@@ -263,11 +263,11 @@ method render*(app: App) {.base.} =
       h: button.graphic.h
       )
 
-      if not button.graphic.isNil():
+      if button.graphic != Graphic():
         if app.renderer.renderCopy(button.graphic.texture, nil, addr(rect)) != 0:
           logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-      if not button.text.isNil():
+      if button.text != TextGraphic():
         if app.renderer.renderCopy(button.text.texture, nil, addr(rect)) != 0:
           logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
@@ -279,11 +279,11 @@ method render*(app: App) {.base.} =
       h: textField.background.h
     )
 
-    if not textField.background.isNil():
+    if textField.background != Graphic():
       if app.renderer.renderCopy(textField.background.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if not textField.currentText.isNil():
+    if textField.currentText != TextGraphic():
       if app.renderer.renderCopy(textField.currentText.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
