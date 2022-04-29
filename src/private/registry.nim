@@ -9,7 +9,7 @@ import
 
 var
   entities*: seq[Entity]
-  sceneVar*: array[1, Scene]
+  sceneVar*: Scene
   renderer*: Renderer
   buttons*: seq[UiButton]
   dropdowns*: seq[UiDropdown]
