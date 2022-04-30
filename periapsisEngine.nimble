@@ -1,4 +1,4 @@
-version     = "1.1.1"
+version     = "1.1.2"
 author      = "Knedlik"
 description = "An engine, originally made for the game Beyond the Sphere"
 license     = "MIT"
