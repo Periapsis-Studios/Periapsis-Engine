@@ -26,6 +26,8 @@ type
     isKeyInputComplete*: bool
     keyInput*: string
   Keycodes* = Keycode
+var
+  app: App
 
 
 
@@ -57,6 +59,7 @@ proc init*(title: cstring, width: cint, height: cint): App =
   logMessage(Log_Category_Application, Log_Priority_Info, "Successfully intitialized the application")
 
   renderer = app.renderer
+  app = app
   return app
 
 
@@ -107,7 +110,7 @@ proc exit*(app: App) =
 
 
 
-method getWindowSize*(app: App): Vector2 {.base.} =
+proc getWindowSize*(): Vector2 =
   result = Vector2()
   getWindowSize(app.window, addr(result.x), addr(result.y))
 

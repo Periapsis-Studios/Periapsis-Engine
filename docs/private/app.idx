@@ -4,7 +4,7 @@ Keycodes	private/app.html#Keycodes	app: Keycodes
 init	private/app.html#init,cstring,cint,cint	app: init(title: cstring; width: cint; height: cint): App	
 playSound	private/app.html#playSound,string,int	app: playSound(path: string; loopTimes: int)	
 exit	private/app.html#exit,App	app: exit(app: App)	
-getWindowSize	private/app.html#getWindowSize.e,App	app: getWindowSize(app: App): Vector2	
+getWindowSize	private/app.html#getWindowSize	app: getWindowSize(): Vector2	
 handleInput	private/app.html#handleInput.e,App	app: handleInput(app: var App)	
 update	private/app.html#update.e,App	app: update(app: App)	
 render	private/app.html#render.e,App	app: render(app: App)	
