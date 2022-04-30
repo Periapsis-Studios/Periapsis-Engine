@@ -9,12 +9,12 @@ import
 
 var
   entities*: seq[Entity]
-  sceneVar*: Scene
+  sceneVar*: ref Scene
   renderer*: Renderer
   buttons*: seq[UiButton]
   dropdowns*: seq[UiDropdown]
   textFields*: seq[UiTextField]
-  scenes: seq[Scene]
+  scenes: seq[ref Scene]
 
 
 
@@ -30,7 +30,7 @@ proc register*(dropdown: UiDropdown) =
 proc register*(textField: UiTextField) =
   textFields.add(textField)
 
-proc setActive*(sceneIn: Scene) =
+proc setActive*(sceneIn: ref Scene) =
   var sceneRegistered: bool = false
   for scene in scenes:
     if scene == sceneIn and not sceneRegistered:
@@ -38,7 +38,7 @@ proc setActive*(sceneIn: Scene) =
 
   entities = newSeq[Entity]()
   buttons = newSeq[UiButton]()
-  sceneVar.hide()
+  sceneVar[].hide()
 
   for entity in sceneIn.entities:
     entity.register()
@@ -54,7 +54,7 @@ proc setActive*(sceneIn: Scene) =
       textField.register()
 
   sceneVar = sceneIn
-  sceneVar.show()
+  sceneVar[].show()
 
 
 
@@ -65,7 +65,7 @@ proc isRegistered*(entityIn: Entity): bool =
       return true
   return false
 
-proc isCurrent*(sceneIn: Scene): bool =
+proc isCurrent*(sceneIn: ref Scene): bool =
   if sceneIn == sceneVar:
     return true
   return false
@@ -118,7 +118,7 @@ proc deRegister*(textFieldIn: UiTextField): bool =
       return true
   return false
 
-proc deRegister*(sceneIn: Scene): bool =
+proc deRegister*(sceneIn: ref Scene): bool =
   for i in 0 ..< scenes.len:
     if scenes[i] == sceneIn:
       scenes.del(i)

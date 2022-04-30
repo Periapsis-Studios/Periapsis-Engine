@@ -1,5 +1,5 @@
 import
-  sdl2_nim / [sdl, sdl_image, sdl_ttf],
+  sdl2_nim / [sdl, sdl_image, sdl_ttf, sdl_mixer],
   strformat,
   sdlBackend,
   vector, 
@@ -48,6 +48,9 @@ proc init*(title: cstring, width: cint, height: cint): App =
   if sdl_image.init(Init_JPG + Init_PNG + Init_TIF + Init_WEBP) == 0:
     logCritical(Log_Category_Error, fmt"Failed to initialize SDL image: {sdl_image.getError()}")
 
+  if sdl_mixer.init(0) == 0:
+    logCritical(Log_Category_Error, fmt"Failed to initialize SDL mixer: {sdl_mixer.getError()}")
+
   app.mousePos = Vector2(x: 0, y: 0)
   discard getMouseState(addr(app.mousePos.x), addr(app.mousePos.y))
 
@@ -55,6 +58,15 @@ proc init*(title: cstring, width: cint, height: cint): App =
 
   renderer = app.renderer
   return app
+
+
+
+proc playSound*(path: string, loopTimes: int) =
+  var rw = rwFromFile(path, "r")
+  var chunk = loadWAV_RW(rw, 1)
+  if playChannel(-1, chunk, loopTimes) == -1:
+    logCritical(Log_Category_Error, fmt"Failed to play sound in {path}: {sdl_mixer.getError()}")
+  chunk.freeChunk()
 
 
 
@@ -85,8 +97,9 @@ proc exit*(app: App) =
     textField.background.remove()
     textField.buttonBackend.remove()
 
-  scene.remove(registry.sceneVar)
+  scene.remove(registry.sceneVar[])
   sdl_image.quit()
+  sdl_mixer.quit()
   app.renderer.destroyRenderer()
   app.window.destroyWindow()
   destroySDL()
@@ -207,7 +220,7 @@ method update*(app: App) {.base.} =
     var keyScancode = Scancode(key)
     keysFinal.add(scancodeToKeycode(keyScancode))
 
-  sceneVar.update(keysFinal)
+  sceneVar[].update(keysFinal)
 
   for button in buttons:
     button.update()
@@ -226,13 +239,19 @@ method render*(app: App) {.base.} =
       w: entity.graphic.w,
       h: entity.graphic.h
     )
+    var textRect = Rect(
+      x: entity.pos.x,
+      y: entity.pos.y,
+      w: entity.text.w,
+      h: entity.text.h
+    )
 
     if entity.graphic != Graphic():
       if app.renderer.renderCopy(entity.graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
     if entity.text != TextGraphic():
-      if app.renderer.renderCopy(entity.text.texture, nil, addr(rect)) != 0:
+      if app.renderer.renderCopy(entity.text.texture, nil, addr(textRect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
       
@@ -245,13 +264,19 @@ method render*(app: App) {.base.} =
       w: button.graphic.w,
       h: button.graphic.h
     )
+    var textRect = Rect(
+      x: button.pos.x,
+      y: button.pos.y,
+      w: button.text.w,
+      h: button.text.h
+    )
 
     if button.graphic != Graphic():
       if app.renderer.renderCopy(button.graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
     if button.text != TextGraphic():
-      if app.renderer.renderCopy(button.text.texture, nil, addr(rect)) != 0:
+      if app.renderer.renderCopy(button.text.texture, nil, addr(textRect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
   for dropdown in dropdowns:
@@ -262,13 +287,19 @@ method render*(app: App) {.base.} =
       w: button.graphic.w,
       h: button.graphic.h
       )
+      var textRect = Rect(
+      x: button.pos.x,
+      y: button.pos.y,
+      w: button.text.w,
+      h: button.text.h
+      )
 
       if button.graphic != Graphic():
         if app.renderer.renderCopy(button.graphic.texture, nil, addr(rect)) != 0:
           logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
       if button.text != TextGraphic():
-        if app.renderer.renderCopy(button.text.texture, nil, addr(rect)) != 0:
+        if app.renderer.renderCopy(button.text.texture, nil, addr(textRect)) != 0:
           logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
   for textField in textFields:
@@ -278,13 +309,19 @@ method render*(app: App) {.base.} =
       w: textField.background.w,
       h: textField.background.h
     )
+    var textRect = Rect(
+      x: textField.pos.x,
+      y: textField.pos.y,
+      w: textField.currentText.w,
+      h: textField.currentText.h
+    )
 
     if textField.background != Graphic():
       if app.renderer.renderCopy(textField.background.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
     if textField.currentText != TextGraphic():
-      if app.renderer.renderCopy(textField.currentText.texture, nil, addr(rect)) != 0:
+      if app.renderer.renderCopy(textField.currentText.texture, nil, addr(textRect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
   app.renderer.renderPresent()
