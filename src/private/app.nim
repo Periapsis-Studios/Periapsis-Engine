@@ -62,14 +62,14 @@ proc exit*(app: App) =
   for button in buttons:
     button.graphic.texture.destroyTexture()
     button.text.texture.destroyTexture()
-    button.remove()
-    discard button.deRegister()
+    button[].remove()
+    discard button[].deRegister()
 
   for entity in entities.mitems():
     entity.graphic.texture.destroyTexture()
     entity.text.texture.destroyTexture()
-    entity.remove()
-    discard entity.deRegister()
+    entity[].remove()
+    discard entity[].deRegister()
 
   for dropdown in dropdowns:
     for button in dropdown.openButtons:
@@ -77,7 +77,7 @@ proc exit*(app: App) =
       button.text.texture.destroyTexture()
       button.remove()
       discard button.deRegister()
-    discard dropdown.deRegister()
+    discard dropdown[].deRegister()
 
   for textField in textFields:
     textField.currentText.remove()
@@ -85,7 +85,7 @@ proc exit*(app: App) =
     textField.background.remove()
     textField.buttonBackend.remove()
 
-  scene.remove(registry.sceneVar)
+  scene.remove(registry.sceneVar[])
   sdl_image.quit()
   app.renderer.destroyRenderer()
   app.window.destroyWindow()
@@ -110,19 +110,19 @@ method handleInput*(app: var App) {.base.} =
     var mousePoint = Point(x: app.mousePos.x, y: app.mousePos.y)
 
     if mousePoint.pointInRect(buttonRect) or mousePoint.pointInRect(buttonTextRect):
-      button.onHoverStart()
+      button[].onHoverStart()
 
       case getMouseState(addr(app.mousePos.x), addr(app.mousePos.y))
       of Button_Left:
-        button.onLmbPress()
+        button[].onLmbPress()
       of Button_Middle:
-        button.onMmbPress()
+        button[].onMmbPress()
       of Button_Right:
-        button.onRmbPress()
+        button[].onRmbPress()
       else:
         discard
     else:
-      button.onHoverEnd()
+      button[].onHoverEnd()
 
   
   for dropdown in dropdowns.mitems():
@@ -140,11 +140,11 @@ method handleInput*(app: var App) {.base.} =
 
         case getMouseState(addr(app.mousePos.x), addr(app.mousePos.y))
         of Button_Left:
-          dropdown.onLmbPress(i)
+          dropdown[].onLmbPress(i)
         of Button_Middle:
-          dropdown.onMmbPress(i)
+          dropdown[].onMmbPress(i)
         of Button_Right:
-          dropdown.onRmbPress(i)
+          dropdown[].onRmbPress(i)
         else:
           discard
       else:
@@ -160,7 +160,7 @@ method handleInput*(app: var App) {.base.} =
     
     var mousePoint = Point(x: app.mousePos.x, y: app.mousePos.y)
 
-    if app.isKeyboardFocused and textField == app.currentTextField:
+    if app.isKeyboardFocused and textField[] == app.currentTextField:
       if not isTextInputActive():
         startTextInput()
       else:
@@ -207,10 +207,10 @@ method update*(app: App) {.base.} =
     var keyScancode = Scancode(key)
     keysFinal.add(scancodeToKeycode(keyScancode))
 
-  sceneVar.update(keysFinal)
+  sceneVar[].update(keysFinal)
 
   for button in buttons:
-    button.update()
+    button[].update()
 
 
 
