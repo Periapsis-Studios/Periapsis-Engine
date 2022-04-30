@@ -40,10 +40,10 @@ proc setActive*(sceneIn: ref Scene) =
   buttons = newSeq[UiButton]()
   sceneVar[].hide()
 
-  for entity in sceneIn.entities:
+  for entity in sceneIn[].entities:
     entity.register()
 
-  for ui in sceneIn.ui:
+  for ui in sceneIn[].ui:
     for button in ui.buttons:
       button.register()
 
@@ -61,12 +61,12 @@ proc setActive*(sceneIn: ref Scene) =
 
 proc isRegistered*(entityIn: Entity): bool =
   for entity in entities:
-    if entity == entityIn:
+    if entity[] == entityIn[]:
       return true
   return false
 
 proc isCurrent*(sceneIn: ref Scene): bool =
-  if sceneIn == sceneVar:
+  if sceneIn[] == sceneVar[]:
     return true
   return false
 
@@ -92,7 +92,7 @@ proc isRegistered*(textFieldIn: UiTextField): bool =
 
 proc deRegister*(entityIn: Entity): bool =
   for i in 0 ..< entities.len:
-    if entities[i] == entityIn:
+    if entities[i][] == entityIn[]:
       entities.del(i)
       return true
   return false

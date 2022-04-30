@@ -237,23 +237,23 @@ method render*(app: App) {.base.} =
   for entity in entities:
     
     var rect = Rect(
-      x: entity.pos.x, 
-      y: entity.pos.y, 
-      w: entity.graphic.w,
-      h: entity.graphic.h
+      x: entity[].pos.x, 
+      y: entity[].pos.y, 
+      w: entity[].graphic.w,
+      h: entity[].graphic.h
     )
     var textRect = Rect(
-      x: entity.pos.x,
-      y: entity.pos.y,
-      w: entity.text.w,
-      h: entity.text.h
+      x: entity[].pos.x,
+      y: entity[].pos.y,
+      w: entity[].text.w,
+      h: entity[].text.h
     )
 
-    if entity.graphic != Graphic():
+    if entity[].graphic != Graphic():
       if app.renderer.renderCopy(entity.graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if entity.text != TextGraphic():
+    if entity[].text != TextGraphic():
       if app.renderer.renderCopy(entity.text.texture, nil, addr(textRect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
