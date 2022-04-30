@@ -65,7 +65,7 @@
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#UiTextField"
-    title="UiTextField = ref object of RootObj
+    title="UiTextField = object of RootObj
   currentText*: TextGraphic
   exampleText*: TextGraphic
   background*: Graphic
@@ -94,7 +94,9 @@
   <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">setCurrentText
       <li><a class="reference" href="#setCurrentText.e%2CUiTextField%2Cstring%2CRenderer"
-    title="setCurrentText(uiTextField: UiTextField; currentText: string; renderer: Renderer)">setCurrentText(uiTextField: UiTextField; currentText: string; renderer: Renderer)</a></li>
+    title="setCurrentText(uiTextField: var UiTextField; currentText: string;
+               renderer: Renderer)">setCurrentText(uiTextField: var UiTextField; currentText: string;
+               renderer: Renderer)</a></li>
 
   </ul>
 
@@ -118,7 +120,7 @@
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
 <div id="UiTextField">
-<dt><pre><a href="textField.html#UiTextField"><span class="Identifier">UiTextField</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
+<dt><pre><a href="textField.html#UiTextField"><span class="Identifier">UiTextField</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
   <span class="Identifier">currentText</span><span class="Operator">*</span><span class="Other">:</span> <a href="textGraphic.html#TextGraphic"><span class="Identifier">TextGraphic</span></a>
   <span class="Identifier">exampleText</span><span class="Operator">*</span><span class="Other">:</span> <a href="textGraphic.html#TextGraphic"><span class="Identifier">TextGraphic</span></a>
   <span class="Identifier">background</span><span class="Operator">*</span><span class="Other">:</span> <a href="imageGraphic.html#Graphic"><span class="Identifier">Graphic</span></a>
@@ -160,7 +162,7 @@
 
 <div id="setCurrentText-methods-all">
 <div id="setCurrentText.e,UiTextField,string,Renderer">
-<dt><pre><span class="Keyword">method</span> <a href="#setCurrentText.e%2CUiTextField%2Cstring%2CRenderer"><span class="Identifier">setCurrentText</span></a><span class="Other">(</span><span class="Identifier">uiTextField</span><span class="Other">:</span> <a href="textField.html#UiTextField"><span class="Identifier">UiTextField</span></a><span class="Other">;</span> <span class="Identifier">currentText</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span>
+<dt><pre><span class="Keyword">method</span> <a href="#setCurrentText.e%2CUiTextField%2Cstring%2CRenderer"><span class="Identifier">setCurrentText</span></a><span class="Other">(</span><span class="Identifier">uiTextField</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="textField.html#UiTextField"><span class="Identifier">UiTextField</span></a><span class="Other">;</span> <span class="Identifier">currentText</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span>
                       <span class="Identifier">renderer</span><span class="Other">:</span> <span class="Identifier">Renderer</span><span class="Other">)</span> {.<span class="Identifier">base</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
@@ -180,7 +182,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-04-29 13:46:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-04-30 15:41:17 UTC</small>
       </div>
     </div>
   </div>

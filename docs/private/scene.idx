@@ -1,7 +1,7 @@
 Scene	private/scene.html#Scene	scene: Scene	
-add	private/scene.html#add.e,Scene,Entity	scene: add(scene: Scene; entity: Entity)	
-remove	private/scene.html#remove.e,Scene,Entity	scene: remove(scene: Scene; entity: Entity)	
-remove	private/scene.html#remove.e,Scene	scene: remove(scene: Scene)	
+add	private/scene.html#add.e,Scene,Entity	scene: add(scene: var Scene; entity: Entity)	
+remove	private/scene.html#remove.e,Scene,Entity	scene: remove(scene: var Scene; entity: var Entity)	
+remove	private/scene.html#remove.e,Scene	scene: remove(scene: var Scene)	
 show	private/scene.html#show.e,Scene	scene: show(scene: Scene)	
 hide	private/scene.html#hide.e,Scene	scene: hide(scene: Scene)	
-update	private/scene.html#update.e,Scene,seq[cint]	scene: update(scene: Scene; keys: seq[cint])	
+update	private/scene.html#update.e,Scene,seq[cint]	scene: update(scene: var Scene; keys: seq[cint])	

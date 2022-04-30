@@ -59,7 +59,7 @@
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#Graphic"
-    title="Graphic = ref object of RootObj
+    title="Graphic = object
   texture*: Texture
   w*: cint
   h*: cint">Graphic</a></li>
@@ -82,7 +82,7 @@
   <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">load
       <li><a class="reference" href="#load.e%2CGraphic%2Ccstring%2CRenderer"
-    title="load(graphic: Graphic; path: cstring; renderer: Renderer)">load(graphic: Graphic; path: cstring; renderer: Renderer)</a></li>
+    title="load(graphic: var Graphic; path: cstring; renderer: Renderer)">load(graphic: var Graphic; path: cstring; renderer: Renderer)</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">remove
@@ -106,7 +106,7 @@
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
 <div id="Graphic">
-<dt><pre><a href="imageGraphic.html#Graphic"><span class="Identifier">Graphic</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
+<dt><pre><a href="imageGraphic.html#Graphic"><span class="Identifier">Graphic</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
   <span class="Identifier">texture</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Texture</span>
   <span class="Identifier">w</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cint</span>
   <span class="Identifier">h</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cint</span>
@@ -143,7 +143,7 @@
 
 <div id="load-methods-all">
 <div id="load.e,Graphic,cstring,Renderer">
-<dt><pre><span class="Keyword">method</span> <a href="#load.e%2CGraphic%2Ccstring%2CRenderer"><span class="Identifier">load</span></a><span class="Other">(</span><span class="Identifier">graphic</span><span class="Other">:</span> <a href="imageGraphic.html#Graphic"><span class="Identifier">Graphic</span></a><span class="Other">;</span> <span class="Identifier">path</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">renderer</span><span class="Other">:</span> <span class="Identifier">Renderer</span><span class="Other">)</span> {.<span class="Identifier">base</span><span class="Other">,</span>
+<dt><pre><span class="Keyword">method</span> <a href="#load.e%2CGraphic%2Ccstring%2CRenderer"><span class="Identifier">load</span></a><span class="Other">(</span><span class="Identifier">graphic</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="imageGraphic.html#Graphic"><span class="Identifier">Graphic</span></a><span class="Other">;</span> <span class="Identifier">path</span><span class="Other">:</span> <span class="Identifier">cstring</span><span class="Other">;</span> <span class="Identifier">renderer</span><span class="Other">:</span> <span class="Identifier">Renderer</span><span class="Other">)</span> {.<span class="Identifier">base</span><span class="Other">,</span>
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
@@ -175,7 +175,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-04-29 13:46:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-04-30 15:41:17 UTC</small>
       </div>
     </div>
   </div>

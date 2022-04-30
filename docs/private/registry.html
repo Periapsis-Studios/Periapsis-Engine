@@ -73,7 +73,7 @@
   <li><a class="reference" href="#renderer"
     title="renderer: Renderer">renderer</a></li>
   <li><a class="reference" href="#sceneVar"
-    title="sceneVar: Scene">sceneVar</a></li>
+    title="sceneVar: ref Scene">sceneVar</a></li>
   <li><a class="reference" href="#textFields"
     title="textFields: seq[UiTextField]">textFields</a></li>
 
@@ -89,15 +89,15 @@
     title="deRegister(dropdownIn: UiDropdown): bool">deRegister(dropdownIn: UiDropdown): bool</a></li>
   <li><a class="reference" href="#deRegister%2CEntity"
     title="deRegister(entityIn: Entity): bool">deRegister(entityIn: Entity): bool</a></li>
-  <li><a class="reference" href="#deRegister%2CScene"
-    title="deRegister(sceneIn: Scene): bool">deRegister(sceneIn: Scene): bool</a></li>
+  <li><a class="reference" href="#deRegister%2Cref.Scene"
+    title="deRegister(sceneIn: ref Scene): bool">deRegister(sceneIn: ref Scene): bool</a></li>
   <li><a class="reference" href="#deRegister%2CUiTextField"
     title="deRegister(textFieldIn: UiTextField): bool">deRegister(textFieldIn: UiTextField): bool</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">isCurrent
-      <li><a class="reference" href="#isCurrent%2CScene"
-    title="isCurrent(sceneIn: Scene): bool">isCurrent(sceneIn: Scene): bool</a></li>
+      <li><a class="reference" href="#isCurrent%2Cref.Scene"
+    title="isCurrent(sceneIn: ref Scene): bool">isCurrent(sceneIn: ref Scene): bool</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">isRegistered
@@ -123,8 +123,8 @@
 
   </ul>
   <ul class="simple nested-toc-section">setActive
-      <li><a class="reference" href="#setActive%2CScene"
-    title="setActive(sceneIn: Scene)">setActive(sceneIn: Scene)</a></li>
+      <li><a class="reference" href="#setActive%2Cref.Scene"
+    title="setActive(sceneIn: ref Scene)">setActive(sceneIn: ref Scene)</a></li>
 
   </ul>
 
@@ -180,7 +180,7 @@
 </dd>
 </div>
 <div id="sceneVar">
-<dt><pre><a href="registry.html#sceneVar"><span class="Identifier">sceneVar</span></a><span class="Other">:</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a></pre></dt>
+<dt><pre><a href="registry.html#sceneVar"><span class="Identifier">sceneVar</span></a><span class="Other">:</span> <span class="Keyword">ref</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a></pre></dt>
 <dd>
 
 
@@ -226,8 +226,8 @@
 
 </dd>
 </div>
-<div id="deRegister,Scene">
-<dt><pre><span class="Keyword">proc</span> <a href="#deRegister%2CScene"><span class="Identifier">deRegister</span></a><span class="Other">(</span><span class="Identifier">sceneIn</span><span class="Other">:</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="deRegister,ref.Scene">
+<dt><pre><span class="Keyword">proc</span> <a href="#deRegister%2Cref.Scene"><span class="Identifier">deRegister</span></a><span class="Other">(</span><span class="Identifier">sceneIn</span><span class="Other">:</span> <span class="Keyword">ref</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 
@@ -246,8 +246,8 @@
 </div>
 
 <div id="isCurrent-procs-all">
-<div id="isCurrent,Scene">
-<dt><pre><span class="Keyword">proc</span> <a href="#isCurrent%2CScene"><span class="Identifier">isCurrent</span></a><span class="Other">(</span><span class="Identifier">sceneIn</span><span class="Other">:</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="isCurrent,ref.Scene">
+<dt><pre><span class="Keyword">proc</span> <a href="#isCurrent%2Cref.Scene"><span class="Identifier">isCurrent</span></a><span class="Other">(</span><span class="Identifier">sceneIn</span><span class="Other">:</span> <span class="Keyword">ref</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 
@@ -330,8 +330,8 @@
 </div>
 
 <div id="setActive-procs-all">
-<div id="setActive,Scene">
-<dt><pre><span class="Keyword">proc</span> <a href="#setActive%2CScene"><span class="Identifier">setActive</span></a><span class="Other">(</span><span class="Identifier">sceneIn</span><span class="Other">:</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="setActive,ref.Scene">
+<dt><pre><span class="Keyword">proc</span> <a href="#setActive%2Cref.Scene"><span class="Identifier">setActive</span></a><span class="Other">(</span><span class="Identifier">sceneIn</span><span class="Other">:</span> <span class="Keyword">ref</span> <a href="scene.html#Scene"><span class="Identifier">Scene</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 
@@ -350,7 +350,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-04-29 13:46:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-04-30 15:41:17 UTC</small>
       </div>
     </div>
   </div>

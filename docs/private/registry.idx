@@ -8,9 +8,9 @@ register	private/registry.html#register,Entity	registry: register(entity: Entity
 register	private/registry.html#register,UiButton	registry: register(button: UiButton)	
 register	private/registry.html#register,UiDropdown	registry: register(dropdown: UiDropdown)	
 register	private/registry.html#register,UiTextField	registry: register(textField: UiTextField)	
-setActive	private/registry.html#setActive,Scene	registry: setActive(sceneIn: Scene)	
+setActive	private/registry.html#setActive,ref.Scene	registry: setActive(sceneIn: ref Scene)	
 isRegistered	private/registry.html#isRegistered,Entity	registry: isRegistered(entityIn: Entity): bool	
-isCurrent	private/registry.html#isCurrent,Scene	registry: isCurrent(sceneIn: Scene): bool	
+isCurrent	private/registry.html#isCurrent,ref.Scene	registry: isCurrent(sceneIn: ref Scene): bool	
 isRegistered	private/registry.html#isRegistered,UiButton	registry: isRegistered(buttonIn: UiButton): bool	
 isRegistered	private/registry.html#isRegistered,UiDropdown	registry: isRegistered(dropdownIn: UiDropdown): bool	
 isRegistered	private/registry.html#isRegistered,UiTextField	registry: isRegistered(textFieldIn: UiTextField): bool	
@@ -18,4 +18,4 @@ deRegister	private/registry.html#deRegister,Entity	registry: deRegister(entityIn
 deRegister	private/registry.html#deRegister,UiButton	registry: deRegister(buttonIn: UiButton): bool	
 deRegister	private/registry.html#deRegister,UiDropdown	registry: deRegister(dropdownIn: UiDropdown): bool	
 deRegister	private/registry.html#deRegister,UiTextField	registry: deRegister(textFieldIn: UiTextField): bool	
-deRegister	private/registry.html#deRegister,Scene	registry: deRegister(sceneIn: Scene): bool	
+deRegister	private/registry.html#deRegister,ref.Scene	registry: deRegister(sceneIn: ref Scene): bool	

@@ -1,3 +1,3 @@
 Entity	private/entity.html#Entity	entity: Entity	
-update	private/entity.html#update.e,Entity	entity: update(entity: Entity)	
-remove	private/entity.html#remove.e,Entity	entity: remove(entity: Entity)	
+update	private/entity.html#update.e,Entity	entity: update(entity: var Entity)	
+remove	private/entity.html#remove.e,Entity	entity: remove(entity: var Entity)	
