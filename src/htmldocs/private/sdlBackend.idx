@@ -1,2 +1,0 @@
-initSDL	private/sdlBackend.html#initSDL	sdlBackend: initSDL()	
-destroySDL	private/sdlBackend.html#destroySDL	sdlBackend: destroySDL()	

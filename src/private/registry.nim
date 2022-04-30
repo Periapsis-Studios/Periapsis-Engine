@@ -8,37 +8,37 @@ import
   sdl2_nim / sdl
 
 var
-  entities*: seq[ptr Entity]
-  sceneVar*: ptr Scene
+  entities*: seq[Entity]
+  sceneVar*: Scene
   renderer*: Renderer
-  buttons*: seq[ptr UiButton]
-  dropdowns*: seq[ptr UiDropdown]
-  textFields*: seq[ptr UiTextField]
-  scenes: seq[ptr Scene]
+  buttons*: seq[UiButton]
+  dropdowns*: seq[UiDropdown]
+  textFields*: seq[UiTextField]
+  scenes: seq[Scene]
 
 
 
 proc register*(entity: Entity) =
-  entities.add(addr(entity))
+  entities.add(entity)
 
 proc register*(button: UiButton) =
-  buttons.add(addr(button))
+  buttons.add(button)
 
 proc register*(dropdown: UiDropdown) =
-  dropdowns.add(addr(dropdown))
+  dropdowns.add(dropdown)
 
 proc register*(textField: UiTextField) =
-  textFields.add(addr(textField))
+  textFields.add(textField)
 
 proc setActive*(sceneIn: Scene) =
   var sceneRegistered: bool = false
   for scene in scenes:
-    if scene == addr(sceneIn) and not sceneRegistered:
+    if scene == sceneIn and not sceneRegistered:
       sceneRegistered = true
 
-  entities = newSeq[ptr Entity]()
-  buttons = newSeq[ptr UiButton]()
-  sceneVar[].hide()
+  entities = newSeq[Entity]()
+  buttons = newSeq[UiButton]()
+  sceneVar.hide()
 
   for entity in sceneIn.entities:
     entity.register()
@@ -53,38 +53,38 @@ proc setActive*(sceneIn: Scene) =
     for textField in ui.textFields:
       textField.register()
 
-  sceneVar = addr(sceneIn)
-  sceneVar[].show()
+  sceneVar = sceneIn
+  sceneVar.show()
 
 
 
 
 proc isRegistered*(entityIn: Entity): bool =
   for entity in entities:
-    if entity == addr(entityIn):
+    if entity == entityIn:
       return true
   return false
 
 proc isCurrent*(sceneIn: Scene): bool =
-  if addr(sceneIn) == sceneVar:
+  if sceneIn == sceneVar:
     return true
   return false
 
 proc isRegistered*(buttonIn: UiButton): bool =
   for button in buttons:
-    if button == addr(buttonIn):
+    if button == buttonIn:
       return true
   return false
 
 proc isRegistered*(dropdownIn: UiDropdown): bool =
   for dropdown in dropdowns:
-    if dropdown == addr(dropdownIn):
+    if dropdown == dropdownIn:
       return true
   return false
 
 proc isRegistered*(textFieldIn: UiTextField): bool =
   for textField in textFields:
-    if textField == addr(textFieldIn):
+    if textField == textFieldIn:
       return true
   return false
 
@@ -92,35 +92,35 @@ proc isRegistered*(textFieldIn: UiTextField): bool =
 
 proc deRegister*(entityIn: Entity): bool =
   for i in 0 ..< entities.len:
-    if entities[i] == addr(entityIn):
+    if entities[i] == entityIn:
       entities.del(i)
       return true
   return false
 
 proc deRegister*(buttonIn: UiButton): bool =
   for i in 0 ..< buttons.len:
-    if buttons[i] == addr(buttonIn):
+    if buttons[i] == buttonIn:
       buttons.del(i)
       return true
   return false
 
 proc deRegister*(dropdownIn: UiDropdown): bool =
   for i in 0 ..< dropdowns.len:
-    if dropdowns[i] == addr(dropdownIn):
+    if dropdowns[i] == dropdownIn:
       dropdowns.del(i)
       return true
   return false
 
 proc deRegister*(textFieldIn: UiTextField): bool =
   for i in 0 ..< textFields.len:
-    if textFields[i] == addr(textFieldIn):
+    if textFields[i] == textFieldIn:
       textFields.del(i)
       return true
   return false
 
 proc deRegister*(sceneIn: Scene): bool =
   for i in 0 ..< scenes.len:
-    if scenes[i] == addr(sceneIn):
+    if scenes[i] == sceneIn:
       scenes.del(i)
       return true
   return false
