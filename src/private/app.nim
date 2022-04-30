@@ -221,18 +221,18 @@ method render*(app: App) {.base.} =
   for entity in entities:
     
     var rect = Rect(
-      x: entity.pos.x, 
-      y: entity.pos.y, 
-      w: entity.graphic.w,
-      h: entity.graphic.h
+      x: entity[].pos.x, 
+      y: entity[].pos.y, 
+      w: entity[].graphic.w,
+      h: entity[].graphic.h
     )
 
-    if entity.graphic != Graphic():
-      if app.renderer.renderCopy(entity.graphic.texture, nil, addr(rect)) != 0:
+    if entity[].graphic != Graphic():
+      if app.renderer.renderCopy(entity[].graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if entity.text != TextGraphic():
-      if app.renderer.renderCopy(entity.text.texture, nil, addr(rect)) != 0:
+    if entity[].text != TextGraphic():
+      if app.renderer.renderCopy(entity[].text.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
       
@@ -240,18 +240,18 @@ method render*(app: App) {.base.} =
   for button in buttons:
     
     var rect = Rect(
-      x: button.pos.x,
-      y: button.pos.y,
-      w: button.graphic.w,
-      h: button.graphic.h
+      x: button[].pos.x,
+      y: button[].pos.y,
+      w: button[].graphic.w,
+      h: button[].graphic.h
     )
 
-    if button.graphic != Graphic():
-      if app.renderer.renderCopy(button.graphic.texture, nil, addr(rect)) != 0:
+    if button[].graphic != Graphic():
+      if app.renderer.renderCopy(button[].graphic.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if button.text != TextGraphic():
-      if app.renderer.renderCopy(button.text.texture, nil, addr(rect)) != 0:
+    if button[].text != TextGraphic():
+      if app.renderer.renderCopy(button[].text.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
   for dropdown in dropdowns:
@@ -273,18 +273,18 @@ method render*(app: App) {.base.} =
 
   for textField in textFields:
     var rect = Rect(
-      x: textField.pos.x, 
-      y: textField.pos.y, 
-      w: textField.background.w,
-      h: textField.background.h
+      x: textField[].pos.x, 
+      y: textField[].pos.y, 
+      w: textField[].background.w,
+      h: textField[].background.h
     )
 
-    if textField.background != Graphic():
-      if app.renderer.renderCopy(textField.background.texture, nil, addr(rect)) != 0:
+    if textField[].background != Graphic():
+      if app.renderer.renderCopy(textField[].background.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object texture to renderer: {sdl.getError()}")
 
-    if textField.currentText != TextGraphic():
-      if app.renderer.renderCopy(textField.currentText.texture, nil, addr(rect)) != 0:
+    if textField[].currentText != TextGraphic():
+      if app.renderer.renderCopy(textField[].currentText.texture, nil, addr(rect)) != 0:
         logCritical(Log_Category_Error, fmt"Failed to copy object text's texture to renderer: {sdl.getError()}")
 
   app.renderer.renderPresent()
